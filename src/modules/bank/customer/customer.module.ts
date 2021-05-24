@@ -1,4 +1,7 @@
 import { Module } from '@nestjs/common';
+import { CreateCustomerService } from './services/create-customer.service';
 
-@Module({})
-export class CustomerModule {}
+@Module({
+  providers: [CreateCustomerService]
+})
+export class CustomerModule { }

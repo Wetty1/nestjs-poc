@@ -4,10 +4,15 @@ import { AppService } from './app.service';
 import { SharedModule } from './shared/shared.module';
 import { BankModule } from './modules/bank/bank.module';
 import { GithubModule } from './modules/github/github.module';
+import { OpenAccountService } from './modules/account/open-account/open-account.service';
+import { TypeOrmModule } from '@nestjs/typeorm'
+import ormconfig from '../ormconfig';
 
 @Module({
-  imports: [SharedModule, BankModule, GithubModule],
+  imports: [
+    TypeOrmModule.forRoot(ormconfig),
+    SharedModule, BankModule, GithubModule],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, OpenAccountService],
 })
 export class AppModule { }

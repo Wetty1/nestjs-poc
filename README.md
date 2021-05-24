@@ -40,6 +40,7 @@ Podemos encontrar alguns modulos que remetem a cenários diferentes que não faz
 ### Banco
 
 - Abrir uma conta
+  - Não deve criar duas contas do mesmo tipo
   - Se conta corrente:
     - o cliente deve ser maior de idade (api externa fictícia)
     - precisa ter uma renda comprovada (api externa fictícia)
