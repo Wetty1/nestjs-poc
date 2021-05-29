@@ -24,13 +24,13 @@
 
 ## Descrição
 
-O proposito deste projeto testar novas ideias para melhorar o entendimento, a organização e para ser uma ferramenta de consulta.
+O proposito deste projeto é testar novas ideias para melhorar o entendimento, a organização e para ser uma ferramenta de consulta.
 
-Podemos encontrar alguns modulos que remetem a cenários diferentes que não fazem parte do mesmo contexto, porem, cada modulo traz um problema a ser testado. Com a complexidade baixa nos permite estressar o ponto em questão.
+Podemos encontrar alguns mṍdulos que remetem à cenários diferentes que não fazem parte do mesmo contexto, porém, cada módulo traz um problema a ser testado. Com a complexidade baixa nos permite estressar o ponto em questão.
 
 ## Modulos/Questões
 
-- [ ] **Banco** - CRUD com service desacoplado, tendo como objetivo o SOLID e multi-modulos
+- [ ] **Banco** - CRUD com service desacoplado, tendo como objetivo o SOLID
 - [ ] **Github** - Tramentos de erro com http de api externas e erros internos, além de colocar a comunicação http em um repositorio
 
 ## Requisitos
@@ -39,6 +39,8 @@ Podemos encontrar alguns modulos que remetem a cenários diferentes que não faz
 
 ### Banco
 
+- Cadastrar um novo cliente
+  - não pode estar com nome sujo (api externa fictícia)
 - Abrir uma conta
   - Não deve criar duas contas do mesmo tipo
   - Se conta corrente:
@@ -46,15 +48,13 @@ Podemos encontrar alguns modulos que remetem a cenários diferentes que não faz
     - precisa ter uma renda comprovada (api externa fictícia)
   - Se conta poupança:
     - deve conter pelo menos 100 reais
-    - não pode estar com nome sujo (api externa fictícia)
 - Fechar uma conta
-  - se con
+  - a conta não pode ter dinheiro
 - Sacar
   - A quantia não deve ser menor que 50
   - A quantia não deve ser meior que 1500
   - Tem que no intervalor das 06:00 as 22:00
 - Transferir
-  - a conta de destino tem que pertencer ao mesmo banco
   - A quantia não deve ser menor que 10
   - A quantia não deve ser meior que 4000
 

@@ -1,6 +1,5 @@
-import { Injectable } from '@nestjs/common'
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
-import { ICustomer } from '../../../models/ICustomer'
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { ICustomer } from '../../../models/ICustomer';
 
 @Entity('customer')
 export class Customer implements ICustomer {

@@ -1,7 +1,5 @@
 import { config } from 'dotenv';
 
-config()
+config();
 
-export default {
-
-}
+export default {};
