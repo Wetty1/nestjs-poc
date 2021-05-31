@@ -1,12 +1,17 @@
+import { InjectRepository } from "@nestjs/typeorm";
 import { ICustomerRepository } from "src/modules/bank/repository/ICustomerRepository";
 import { Repository } from "typeorm";
 import { Customer } from "../models/customer.entity";
 
 
-export class CustomerRepository implements ICustomerRepository {
+export class CustomersRepository implements ICustomerRepository {
     constructor(
+        @InjectRepository(Customer)
         private readonly customerRepository: Repository<Customer>,
     ) { }
+    findByCPF(cpf: string): Promise<Customer> {
+        return this.customerRepository.findOne({ where: { cpf } });
+    }
 
     async find(): Promise<Customer[]> {
         return this.customerRepository.find();

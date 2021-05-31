@@ -1,0 +1,18 @@
+{
+    "person": [
+        {
+            "id": "1",
+            "cpf": "11122233300",
+            "name": "Wesley",
+            "dirty_name": false,
+            "score": 1200
+        },
+        {
+            "id": "2",
+            "cpf": "22233344400",
+            "name": "Rayane",
+            "dirty_name": true,
+            "score": 0
+        }
+    ]
+}

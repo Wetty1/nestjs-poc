@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { Account } from '../infra/typeorm/models/account.entity';
 import { IAccountRepository } from '../repository/IAccountRepository';
 
@@ -10,6 +10,12 @@ export class CloseAccountService {
     ) { }
 
     async execute(data: Partial<Account>): Promise<Account> {
-        return this.accountRepository.create(data);
+        const account = await this.accountRepository.findById(data.id);
+        if (!account)
+            throw new NotFoundException("Account not found")
+        if (account.amount > 0)
+            throw new Error("Account has money")
+        await this.accountRepository.delete(data.id)
+        return account;
     }
 }

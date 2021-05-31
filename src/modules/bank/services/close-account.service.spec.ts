@@ -26,6 +26,14 @@ describe('CloseAccountService', () => {
         expect(service).toBeDefined();
     });
 
-    it.todo('should not be closed account when money exists')
+    it('should not be closed account when money exists', async () => {
+        const account = await fakeAccountRepository.create({
+            customer_id: 1,
+            type: "corrente",
+            amount: 1500
+        });
+
+        await expect(service.execute(account)).rejects.toBeInstanceOf(Error);
+    })
 
 });
