@@ -10,10 +10,20 @@ import { CustomersRepository } from './infra/typeorm/repository/customer.reposit
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Customer } from './infra/typeorm/models/customer.entity';
 import { Account } from './infra/typeorm/models/account.entity';
+import { SerasaHttpRepository } from './infra/http/repository/serasa_http.repository';
 
 @Module({
     imports: [HttpModule, TypeOrmModule.forFeature([Customer, Account])],
-    providers: [CreateCustomerService, OpenAccountService, CloseAccountService, WithdrawMoneyService, TransferService, AccountRepository, CustomersRepository],
+    providers: [
+        CreateCustomerService,
+        OpenAccountService,
+        CloseAccountService,
+        WithdrawMoneyService,
+        TransferService,
+        AccountRepository,
+        CustomersRepository,
+        SerasaHttpRepository,
+    ],
     controllers: [CustomerController],
 })
 export class BankModule { }

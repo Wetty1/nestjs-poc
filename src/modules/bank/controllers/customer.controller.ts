@@ -1,4 +1,5 @@
 import { Body, Controller, Get, Inject, Post } from '@nestjs/common';
+import { Customer } from '../infra/typeorm/models/customer.entity';
 import { CreateCustomerService } from '../services/create-customer.service';
 
 @Controller('customer')
@@ -10,11 +11,6 @@ export class CustomerController {
 
     @Post()
     async createCustomer(@Body() data) {
-        try {
-            return await this.createCustomerService.execute(data);
-        } catch (error) {
-            console.log(error);
-            return error;
-        }
+        return await this.createCustomerService.execute(data);
     }
 }

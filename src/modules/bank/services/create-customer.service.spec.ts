@@ -6,7 +6,8 @@ import { CreateCustomerService } from './create-customer.service';
 
 describe('CreateCustomerService', () => {
     let service: CreateCustomerService;
-    let fakeCustomerRepository: ICustomerRepository = new CustomerRepositoryFake();
+    const fakeCustomerRepository: ICustomerRepository =
+        new CustomerRepositoryFake();
 
     beforeEach(async () => {
         const module: TestingModule = await Test.createTestingModule({
@@ -15,7 +16,7 @@ describe('CreateCustomerService', () => {
                 {
                     provide: CustomerRepository,
                     useValue: fakeCustomerRepository,
-                }
+                },
             ],
         }).compile();
 
@@ -26,5 +27,9 @@ describe('CreateCustomerService', () => {
         expect(service).toBeDefined();
     });
 
-    it.todo('should be able not create when customer have dirty name')
+    it.todo('should be able create a customer');
+
+    it.todo('should be able not create when customer have dirty name');
+
+    it.todo('should be able not create when customer exists');
 });

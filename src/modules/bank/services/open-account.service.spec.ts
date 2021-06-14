@@ -6,14 +6,18 @@ import { OpenAccountService } from './open-account.service';
 
 describe('OpenAccountService', () => {
     let service: OpenAccountService;
-    let fakeAccountRepository: IAccountRepository = new AccountRepositoryFake();
+    const fakeAccountRepository: IAccountRepository =
+        new AccountRepositoryFake();
 
     beforeEach(async () => {
         const module: TestingModule = await Test.createTestingModule({
-            providers: [OpenAccountService, {
-                provide: AccountRepository,
-                useValue: fakeAccountRepository
-            }],
+            providers: [
+                OpenAccountService,
+                {
+                    provide: AccountRepository,
+                    useValue: fakeAccountRepository,
+                },
+            ],
         }).compile();
 
         service = module.get<OpenAccountService>(OpenAccountService);

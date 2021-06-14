@@ -4,13 +4,13 @@ import { config } from 'dotenv';
 config();
 
 export default {
-    host: "localhost",
-    username: "sa",
-    password: "Teste12345678",
-    port: 1433,
+    host: process.env.DB_HOST,
+    username: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    port: Number(process.env.DB_PORT),
     type: "mssql",
     entities: [__dirname + '/src/modules/**/models/*.entity{.js,.ts}'],
-    database: "master",
+    database: process.env.DB_BASE,
     logger: "debug",
     options: {
         trustServerCertificate: true

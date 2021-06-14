@@ -1,4 +1,5 @@
-import { HttpService, Inject, Injectable } from '@nestjs/common';
+import { BadRequestException, HttpException, HttpService, Inject, Injectable, NotFoundException } from '@nestjs/common';
+import { SerasaHttpRepository } from '../infra/http/repository/serasa_http.repository';
 import { Customer } from '../infra/typeorm/models/customer.entity';
 import { ICustomerRepository } from '../repository/ICustomerRepository';
 
@@ -7,23 +8,23 @@ export class CreateCustomerService {
     constructor(
         @Inject('CustomersRepository')
         private readonly customerRepository: ICustomerRepository,
-        private readonly httpService: HttpService,
+        private readonly serasaHttpRepository: SerasaHttpRepository,
     ) { }
 
     async execute(data: Partial<Customer>) {
-        const responseSerasa = await this.httpService.get(`http://localhost:3001/person?cpf=${data.cpf}`).toPromise()
-        const dataRes = responseSerasa.data[0];
-        console.log(dataRes)
-        if (dataRes.dirty_name)
-            return { "mensage": "Name is dirty" }
+        const person = await this.serasaHttpRepository.findPersonByCPF(data.cpf);
 
+        console.log(person)
 
-        // TODO: checks whether cpf exists in the database
+        if (!person)
+            throw new NotFoundException("Person not found")
+        if (person.dirty_name)
+            throw new HttpException("Name is dirty", 402);
+
         const customerExists = await this.customerRepository.findByCPF(data.cpf);
 
-        if (customerExists) throw new Error("Customer exists")
+        if (customerExists) throw new BadRequestException("Customer exists")
 
         return this.customerRepository.create(data);
-
     }
 }

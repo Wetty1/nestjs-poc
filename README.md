@@ -5,39 +5,33 @@
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Descrição
 
-O proposito deste projeto é testar novas ideias para melhorar o entendimento, a organização e para ser uma ferramenta de consulta.
+## 📜 Descrição
 
-Podemos encontrar alguns mṍdulos que remetem à cenários diferentes que não fazem parte do mesmo contexto, porém, cada módulo traz um problema a ser testado. Com a complexidade baixa nos permite estressar o ponto em questão.
+O proposito deste projeto é testar novas ideias para melhorar o entendimento, a organização e para ser um local de consulta. Uma lista de objetivo a serem alcaçados de 
 
-## Modulos/Questões
+O cenário de banco nos permite inventar regras de negócios mais complexas pra tester métodos e tecnologias novas com mais profundidade.
 
-- [ ] **Banco** - CRUD com service desacoplado, tendo como objetivo o SOLID
-- [ ] **Github** - Tramentos de erro com http de api externas e erros internos, além de colocar a comunicação http em um repositorio
+## 🗄 Modulos
 
-## Requisitos
+- Clientes
+- Conta
+- Transferencias
 
-> *Obs: As funcionalidades a baixo são fictícias e servem apenas para aumentar a complexidade do projeto!
+## 📑 Objetivos
 
-### Banco
+- [x] CRUD com services desacoplados e contendo somente sua reponsabilidade, tendo como objetivo seguir os princípios de SOLID
+- [ ] Log de erros
+
+- [ ] Fazer conexões multiplas com typeorm
+- [ ] Tratamento de erro de *repositórios* e *regra de negócios*
+- [ ] Comunicação gRPC
+- [ ] Documentação Swegger gerada via Nestjs
+
+## Requisitos funcionais
+
+> *Obs: As funcionalidades a baixo são fictícias e servem apenas para aumentar a complexidade do projeto.
 
 - Cadastrar um novo cliente
   - não pode estar com nome sujo (api externa fictícia)
@@ -58,19 +52,19 @@ Podemos encontrar alguns mṍdulos que remetem à cenários diferentes que não 
   - A quantia não deve ser menor que 10
   - A quantia não deve ser meior que 4000
 
-### Github
-
-- Registrar usuario
-- Listar repositorio de um usuario registrado
-- Deletar usuario
-
-## Installation
+## Instalação
 
 ```bash
 $ npm install
 ```
 
-## Running the app
+ou
+
+```bash
+$ yarn
+```
+
+## Rodar o projeto
 
 ```bash
 # development
@@ -83,7 +77,20 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
+ou 
+
+```bash
+# development
+$ yarn start
+
+# watch mode
+$ yarn start:dev
+
+# production mode
+$ yarn start:prod
+```
+
+## Testes
 
 ```bash
 # unit tests
@@ -94,4 +101,17 @@ $ npm run test:e2e
 
 # test coverage
 $ npm run test:cov
+```
+
+ou 
+
+```bash
+# unit tests
+$ yarn test
+
+# e2e tests
+$ yarn test:e2e
+
+# test coverage
+$ yarn test:cov
 ```
