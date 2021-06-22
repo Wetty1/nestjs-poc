@@ -11,6 +11,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Customer } from './infra/typeorm/models/customer.entity';
 import { Account } from './infra/typeorm/models/account.entity';
 import { SerasaHttpRepository } from './infra/http/repository/serasa_http.repository';
+import { PersonGrpcRepository } from './infra/grpc/person_grpc.repository';
 
 @Module({
     imports: [HttpModule, TypeOrmModule.forFeature([Customer, Account])],
@@ -23,7 +24,8 @@ import { SerasaHttpRepository } from './infra/http/repository/serasa_http.reposi
         AccountRepository,
         CustomersRepository,
         SerasaHttpRepository,
+        PersonGrpcRepository,
     ],
     controllers: [CustomerController],
 })
-export class BankModule { }
+export class BankModule {}

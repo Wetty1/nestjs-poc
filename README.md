@@ -34,12 +34,12 @@ O cenário de banco nos permite inventar regras de negócios mais complexas pra 
 > *Obs: As funcionalidades a baixo são fictícias e servem apenas para aumentar a complexidade do projeto.
 
 - Cadastrar um novo cliente
-  - não pode estar com nome sujo (api externa fictícia)
+  - não pode estar com nome sujo (outro microserviço)
 - Abrir uma conta
   - Não deve criar duas contas do mesmo tipo
   - Se conta corrente:
-    - o cliente deve ser maior de idade (api externa fictícia)
-    - precisa ter uma renda comprovada (api externa fictícia)
+    - o cliente deve ser maior de idade (outro microserviço)
+    - precisa ter uma renda comprovada (outro microserviço)
   - Se conta poupança:
     - deve conter pelo menos 100 reais
 - Fechar uma conta
