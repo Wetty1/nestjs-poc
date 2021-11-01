@@ -5,9 +5,9 @@ import { IAccountRepository } from '../repository/IAccountRepository';
 @Injectable()
 export class CloseAccountService {
     constructor(
-        @Inject('AccountRepository')
+        @Inject('IAccountRepository')
         private readonly accountRepository: IAccountRepository,
-    ) {}
+    ) { }
 
     async execute(data: Partial<Account>): Promise<Account> {
         const account = await this.accountRepository.findById(data.id);

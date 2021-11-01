@@ -1,15 +1,16 @@
 import { HttpService, Inject, Injectable } from "@nestjs/common";
-import { DataPerson, ResponseFindPerson } from "../../../dtos/serasa_http.dto";
+import { DataPerson, ResponseFindPerson } from "../../../dtos/serasa.dto";
+import { ISerasaRepository } from '../../../repository/ISerasaRepository';
 
 @Injectable()
-export class SerasaHttpRepository {
+export class SerasaHttpRepository implements ISerasaRepository {
     constructor(
         private readonly httpService: HttpService,
     ) { }
 
-    async findPersonByCPF(cpf: string): Promise<DataPerson> {
+    async findByDocument(document: string): Promise<DataPerson> {
         try {
-            const response = await this.httpService.get<ResponseFindPerson>(`http://localhost:3001/person?cpf=${cpf}`).toPromise()
+            const response = await this.httpService.get<ResponseFindPerson>(`http://localhost:3001/person?cpf=${document}`).toPromise()
             console.log(response.data);
             return response.data[0];
         } catch (error) {

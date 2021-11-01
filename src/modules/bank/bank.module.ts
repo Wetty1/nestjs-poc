@@ -11,7 +11,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Customer } from './infra/typeorm/models/customer.entity';
 import { Account } from './infra/typeorm/models/account.entity';
 import { SerasaHttpRepository } from './infra/http/repository/serasa_http.repository';
-import { PersonGrpcRepository } from './infra/grpc/person_grpc.repository';
+import { SerasaGrpcRepository } from './infra/grpc/repository/serasa_grpc.repository';
+import { AccountRepositoryFake } from './repository/fakes/AccountRepository.fake';
+import { TransferGrpcRepository } from './infra/grpc/repository/transfer_grpc.repository';
 
 @Module({
     imports: [HttpModule, TypeOrmModule.forFeature([Customer, Account])],
@@ -21,11 +23,23 @@ import { PersonGrpcRepository } from './infra/grpc/person_grpc.repository';
         CloseAccountService,
         WithdrawMoneyService,
         TransferService,
-        AccountRepository,
-        CustomersRepository,
-        SerasaHttpRepository,
-        PersonGrpcRepository,
+        {
+            provide: 'IAccountRepository',
+            useValue: AccountRepository
+        },
+        {
+            provide: 'ICustomerRepository',
+            useValue: CustomersRepository
+        },
+        {
+            provide: 'ISerasaRepository',
+            useClass: process.env.GPRC != null ? SerasaGrpcRepository : SerasaHttpRepository,
+        },
+        {
+            provide: 'ITransferRepository',
+            useClass: TransferGrpcRepository
+        }
     ],
     controllers: [CustomerController],
 })
-export class BankModule {}
+export class BankModule { }

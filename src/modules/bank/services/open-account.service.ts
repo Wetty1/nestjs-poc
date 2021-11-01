@@ -4,7 +4,7 @@ import { IAccountRepository } from '../repository/IAccountRepository';
 @Injectable()
 export class OpenAccountService {
     constructor(
-        @Inject('AccountRepository')
+        @Inject('IAccountRepository')
         private readonly accountRepository: IAccountRepository,
     ) { }
 

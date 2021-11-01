@@ -9,6 +9,6 @@ export class Customer implements ICustomer {
     name: string;
     @Column()
     cpf: string;
-    @Column()
-    birthdate: string;
+    @Column({ name: 'birth_date', type: 'timestamp' })
+    birthdate: Date;
 }

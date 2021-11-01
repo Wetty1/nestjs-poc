@@ -1,5 +1,5 @@
 import { InjectRepository } from "@nestjs/typeorm";
-import { ICustomerRepository } from "src/modules/bank/repository/ICustomerRepository";
+import { ICustomerRepository } from "../../../repository/ICustomerRepository";
 import { Repository } from "typeorm";
 import { Customer } from "../models/customer.entity";
 

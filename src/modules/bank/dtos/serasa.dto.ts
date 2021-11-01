@@ -2,7 +2,7 @@ export interface DataPerson {
     id: string;
     cpf: string;
     name: string;
-    dirty_name: boolean;
+    dirty_name: number;
     score: number;
 }
 

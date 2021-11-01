@@ -1,6 +1,6 @@
 export interface IAccount {
     id: number;
     customer_id: number;
-    type: "corrente" | "poupança";
+    type: 'corrente' | 'poupança';
     amount: number;
 }

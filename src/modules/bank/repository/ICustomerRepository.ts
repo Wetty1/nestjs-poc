@@ -1,4 +1,4 @@
-import { IBaseRepository } from 'src/shared/interfaces/IBaseRepository';
+import { IBaseRepository } from '../../../shared/interfaces/IBaseRepository';
 import { Customer } from '../infra/typeorm/models/customer.entity';
 
 export interface ICustomerRepository extends IBaseRepository<Customer> {

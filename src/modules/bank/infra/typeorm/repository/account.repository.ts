@@ -1,5 +1,5 @@
 import { Logger } from "@nestjs/common";
-import { IAccountRepository } from "src/modules/bank/repository/IAccountRepository";
+import { IAccountRepository } from "../../../repository/IAccountRepository";
 import { DeleteResult, Repository } from "typeorm";
 import { Account } from "../models/account.entity";
 

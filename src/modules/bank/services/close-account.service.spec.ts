@@ -6,7 +6,8 @@ import { CloseAccountService } from './close-account.service';
 
 describe('CloseAccountService', () => {
     let service: CloseAccountService;
-    let fakeAccountRepository: IAccountRepository = new AccountRepositoryFake();
+    const fakeAccountRepository: IAccountRepository =
+        new AccountRepositoryFake();
 
     beforeEach(async () => {
         const module: TestingModule = await Test.createTestingModule({
@@ -14,8 +15,8 @@ describe('CloseAccountService', () => {
                 CloseAccountService,
                 {
                     provide: AccountRepository,
-                    useValue: fakeAccountRepository
-                }
+                    useValue: fakeAccountRepository,
+                },
             ],
         }).compile();
 
@@ -29,11 +30,10 @@ describe('CloseAccountService', () => {
     it('should not be closed account when money exists', async () => {
         const account = await fakeAccountRepository.create({
             customer_id: 1,
-            type: "corrente",
-            amount: 1500
+            type: 'corrente',
+            amount: 1500,
         });
 
         await expect(service.execute(account)).rejects.toBeInstanceOf(Error);
-    })
-
+    });
 });
